@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
   },
+  title: {
+    textTransform: "uppercase",
+  },
 }))
 
 export default function PokemonCard(props) {
@@ -36,12 +39,12 @@ export default function PokemonCard(props) {
   const { pokemon, image } = props
   const { id, name } = pokemon
   return (
-    <Grid item xs={12} sm={2} key={id}>
+    <Grid item xs={12} sm={3} key={id}>
       <Link to={"/pokemon/" + id} className={classes.link}>
         <Card className={classes.card}>
           <CardMedia className={classes.cardMedia} image={image}></CardMedia>
           <CardContent className={classes.cardContent}>
-            <Typography>{name}</Typography>
+            <Typography className={classes.title}>{name}</Typography>
           </CardContent>
         </Card>
       </Link>
