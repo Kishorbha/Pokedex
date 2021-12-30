@@ -1,12 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Pokedex from "./containers/Pokedex";
-import AppNavigator from "./components/AppNavigator";
-import PokemonDetails from "./containers/PokemonDetails";
-import { Provider } from "react-redux";
-import { store, persistor } from "./redux/store";
-import { PersistGate } from "redux-persist/integration/react";
-import Favourites from "./containers/Favourites";
+import React from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import Pokedex from "./containers/Pokedex"
+import AppNavigator from "./components/NavBar/AppNavigator"
+import PokemonDetails from "./containers/PokemonDetails"
+import { Provider } from "react-redux"
+import { store, persistor } from "./redux/store"
+import { PersistGate } from "redux-persist/integration/react"
+import Favourites from "./containers/Favourites"
 
 export default function App() {
   return (
@@ -20,5 +20,5 @@ export default function App() {
         </Router>
       </PersistGate>
     </Provider>
-  );
+  )
 }

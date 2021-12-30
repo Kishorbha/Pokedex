@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { POKEMON_API_URL } from "../config";
+import React, { Component } from "react"
+import axios from "axios"
+import { POKEMON_API_URL } from "../api"
 import {
   CircularProgress,
   Box,
@@ -8,10 +8,10 @@ import {
   Typography,
   Grid,
   Button,
-} from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import { connect } from "react-redux";
-import { toggleFavourite } from "../redux/actions";
+} from "@material-ui/core"
+import FavoriteIcon from "@material-ui/icons/Favorite"
+import { connect } from "react-redux"
+import { toggleFavourite } from "../redux/actions"
 
 const styles = (theme) => ({
   pokedexContainer: {
@@ -48,40 +48,40 @@ const styles = (theme) => ({
   text: {
     fontSize: 30,
   },
-});
+})
 
 class PokemonDetails extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       pokemon: null,
-    };
+    }
   }
 
   componentDidMount() {
-    const { match } = this.props;
-    const { id } = match?.params;
+    const { match } = this.props
+    const { id } = match?.params
     axios.get(POKEMON_API_URL + "/" + id).then((response) => {
       if (response.status >= 200 && response.status < 300) {
-        this.setState({ pokemon: response.data });
+        this.setState({ pokemon: response.data })
       }
-    });
+    })
   }
 
   favouriteChecker(pokemon) {
     let found = false
     this.props.favourites?.map((p) => {
-      if(p.id === pokemon.id) {
+      if (p.id === pokemon.id) {
         found = true
       }
     })
     return found
   }
   render() {
-    const { classes } = this.props;
-    const { pokemon } = this.state;
+    const { classes } = this.props
+    const { pokemon } = this.state
     if (pokemon) {
-      const { name, sprites, height, weight, types } = pokemon;
+      const { name, sprites, height, weight, types } = pokemon
       return (
         <Box>
           <Box className={classes.pokedexContainer}>
@@ -97,7 +97,12 @@ class PokemonDetails extends Component {
                     className={classes.favourite}
                     onClick={() => this.props.toggleFavourite(pokemon)}
                   >
-                    <FavoriteIcon style={{ color: this.favouriteChecker(pokemon) ? "red" : "white", fontSize: 50 }} />
+                    <FavoriteIcon
+                      style={{
+                        color: this.favouriteChecker(pokemon) ? "red" : "white",
+                        fontSize: 50,
+                      }}
+                    />
                   </Button>
                 </Grid>
                 <Grid item md={2}>
@@ -122,7 +127,7 @@ class PokemonDetails extends Component {
                   </Typography>
                 </Grid>
                 {types.map((pokemonType) => {
-                  const { name } = pokemonType.type;
+                  const { name } = pokemonType.type
                   return (
                     <Grid item md={2}>
                       <Typography className={classes.text}>
@@ -131,27 +136,27 @@ class PokemonDetails extends Component {
                         {name}
                       </Typography>
                     </Grid>
-                  );
+                  )
                 })}
               </Grid>
             </Box>
           </Box>
         </Box>
-      );
+      )
     } else {
-      return <CircularProgress />;
+      return <CircularProgress />
     }
   }
 }
 
 const mapStateToProps = (state) => ({
-  favourites: state.favourites
-});
+  favourites: state.favourites,
+})
 
 const mapDispatchToProps = (dispatch) => ({
   toggleFavourite: (pokemon) => dispatch(toggleFavourite(pokemon)),
-});
+})
 
 export default withStyles(styles)(
   connect(mapStateToProps, mapDispatchToProps)(PokemonDetails)
-);
+)

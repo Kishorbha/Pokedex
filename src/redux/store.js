@@ -1,11 +1,11 @@
-import { createStore } from 'redux'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { createStore } from "redux"
+import { persistStore, persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage" // defaults to localStorage for web
 
-import rootReducer from './reducer'
+import rootReducer from "./reducer"
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
 }
 

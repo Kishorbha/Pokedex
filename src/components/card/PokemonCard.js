@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Grid,
   Card,
@@ -6,8 +6,8 @@ import {
   CardContent,
   Typography,
   makeStyles,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
+} from "@material-ui/core"
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -27,14 +27,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   link: {
-      textDecoration: "none"
-  }
-}));
+    textDecoration: "none",
+  },
+}))
 
 export default function PokemonCard(props) {
-  const classes = useStyles();
-  const { pokemon, image } = props;
-  const { id, name } = pokemon;
+  const classes = useStyles()
+  const { pokemon, image } = props
+  const { id, name } = pokemon
   return (
     <Grid item xs={12} sm={2} key={id}>
       <Link to={"/pokemon/" + id} className={classes.link}>
@@ -46,5 +46,5 @@ export default function PokemonCard(props) {
         </Card>
       </Link>
     </Grid>
-  );
+  )
 }
