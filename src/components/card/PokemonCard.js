@@ -12,11 +12,11 @@ import { Link } from "react-router-dom"
 const useStyles = makeStyles((theme) => ({
   card: {
     cursor: "pointer",
-    backgroundColor: "black",
-    color: "white",
+    backgroundColor: "white",
+    color: "black",
     "&:hover": {
-      backgroundColor: "white",
-      color: "black",
+      backgroundColor: "lightyellow",
+      color: "red",
     },
   },
   cardMedia: {

@@ -15,10 +15,10 @@ import { toggleFavourite } from "../redux/actions"
 
 const styles = (theme) => ({
   pokedexContainer: {
-    height: "84vh",
-    backgroundColor: "black",
-    color: "white",
-    marginTop: 75,
+    height: "85vh",
+    backgroundColor: "lightblue",
+    color: "black",
+    marginTop: 70,
     textAlign: "center",
     borderRadius: 5,
     paddingTop: 30,
@@ -34,7 +34,7 @@ const styles = (theme) => ({
   pokemonInfoContainer: {
     bottom: 60,
     position: "absolute",
-    width: "100%",
+    width: "90%",
   },
   seperator: {
     height: "0.01mm",
